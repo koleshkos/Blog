@@ -70,3 +70,45 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | Allocations: 3475)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (91.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (88.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20210529203017)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210529203017"]]
+  [1m[36mTRANSACTION (92.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-29 20:52:57.615564"], ["updated_at", "2021-05-29 20:52:57.615564"]]
+  [1m[36mTRANSACTION (100.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello Rails"], ["body", "I am on Rails"], ["created_at", "2021-05-29 21:46:52.261198"], ["updated_at", "2021-05-29 21:46:52.261198"]]
+  [1m[36mTRANSACTION (66.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello Rails"], ["body", "I am on Rails!2"], ["created_at", "2021-05-29 21:49:13.499280"], ["updated_at", "2021-05-29 21:49:13.499280"]]
+  [1m[36mTRANSACTION (108.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2021-05-29 21:49:47.231052"], ["updated_at", "2021-05-29 21:49:47.231052"]]
+  [1m[36mTRANSACTION (69.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2021-05-30 00:59:02 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 8997)
+Completed 200 OK in 28ms (Views: 18.7ms | ActiveRecord: 0.6ms | Allocations: 11849)
+
+
